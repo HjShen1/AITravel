@@ -153,18 +153,15 @@ def stream_itinerary(request):
                         f"Plan a {days}-day trip for: {query}\n"
                         f"Use these places:\n{poi_text}\n\n"
                         "All text must be in English only.\n"
-                        "Return STRICT JSON ONLY in this format:\n"
+                        f"Return STRICT JSON ONLY. Each day must have EXACTLY 3 activities with time slots: morning, afternoon, evening — in that order.\n"
                         '{\n'
                         '  "days": [\n'
                         '    {\n'
                         '      "day": 1,\n'
                         '      "activities": [\n'
-                        '        {\n'
-                        '          "time": "morning",\n'
-                        '          "title": "",\n'
-                        '          "description": "",\n'
-                        '          "location": ""\n'
-                        '        }\n'
+                        '        { "time": "morning", "title": "", "description": "", "location": "" },\n'
+                        '        { "time": "afternoon", "title": "", "description": "", "location": "" },\n'
+                        '        { "time": "evening", "title": "", "description": "", "location": "" }\n'
                         '      ]\n'
                         '    }\n'
                         '  ]\n'
